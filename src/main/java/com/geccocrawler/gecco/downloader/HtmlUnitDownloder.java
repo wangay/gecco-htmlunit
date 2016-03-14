@@ -26,6 +26,7 @@ import com.geccocrawler.gecco.utils.UrlUtils;
  * @author huchengyi
  *
  */
+@com.geccocrawler.gecco.annotation.Downloader("htmlUnitDownloder")
 public class HtmlUnitDownloder extends AbstractDownloader {
 
 	private WebClient webClient;

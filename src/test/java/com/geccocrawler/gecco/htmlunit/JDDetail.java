@@ -5,12 +5,11 @@ import com.geccocrawler.gecco.annotation.Gecco;
 import com.geccocrawler.gecco.annotation.HtmlField;
 import com.geccocrawler.gecco.annotation.RequestParameter;
 import com.geccocrawler.gecco.annotation.Text;
-import com.geccocrawler.gecco.downloader.HtmlUnitDownloder;
 import com.geccocrawler.gecco.request.HttpGetRequest;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.spider.HtmlBean;
 
-@Gecco(matchUrl="http://item.jd.com/{code}.html", pipelines="consolePipeline")
+@Gecco(matchUrl="http://item.jd.com/{code}.html", pipelines="consolePipeline", downloader="htmlUnitDownloder")
 public class JDDetail implements HtmlBean {
 
 	private static final long serialVersionUID = -377053120283382723L;
@@ -74,12 +73,10 @@ public class JDDetail implements HtmlBean {
 	}
 
 	public static void main(String[] args) throws Exception {
-		HtmlUnitDownloder downloader = new HtmlUnitDownloder();
 		HttpRequest request = new HttpGetRequest("http://item.jd.com/1455427.html");
 		request.setCharset("GBK");
 		GeccoEngine.create()
 		.classpath("com.geccocrawler.gecco.htmlunit")
-		.downloader(downloader)
 		//开始抓取的页面地址
 		.start(request)
 		//开启几个爬虫线程
