@@ -81,7 +81,6 @@ public class JDDetail implements HtmlBean {
 		.start(request)
 		//开启几个爬虫线程
 		.thread(1)
-		.timeout(1000)
 		.run();
 	}
 }

@@ -41,7 +41,7 @@ public class HtmlUnitDownloder extends AbstractDownloader {
 		//this.webClient.setJavaScriptErrorListener(new GeccoJavaScriptErrorListener());
 	}
 	
-	public HttpResponse download(HttpRequest request) throws DownloaderException {
+	public HttpResponse download(HttpRequest request, int timeout) throws DownloaderException {
 		try {
 			URL url = new URL(request.getUrl());
 			WebRequest webRequest = new WebRequest(url);
@@ -65,6 +65,8 @@ public class HtmlUnitDownloder extends AbstractDownloader {
 				webRequest.setProxyHost(proxy.getHostName());
 				webRequest.setProxyPort(proxy.getPort());
 			}
+			//timeout
+			this.webClient.getOptions().setTimeout(timeout);
 			//request,response
 			webClient.getPage(webRequest);
 			HtmlPage page = webClient.getPage(request.getUrl());
@@ -90,10 +92,6 @@ public class HtmlUnitDownloder extends AbstractDownloader {
 		} catch(Exception ex) {
 			throw new DownloaderException(ex);
 		}
-	}
-
-	public void timeout(long timeout) {
-		this.webClient.getOptions().setTimeout((int)timeout);
 	}
 
 	public void shutdown() {
