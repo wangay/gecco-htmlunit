@@ -6,7 +6,7 @@ java爬虫gecco发布了1.0.5版本，增加了对htmlunit的支持。[htmlunit](http://htmlunit
 		<dependency>
 		    <groupId>com.geccocrawler</groupId>
 		    <artifactId>gecco-htmlunit</artifactId>
-		    <version>1.0.5</version>
+		    <version>1.0.6</version>
 		</dependency>
 
 - 使用HtmlUnitDownloader
