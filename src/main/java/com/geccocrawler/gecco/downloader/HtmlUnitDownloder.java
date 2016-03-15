@@ -14,7 +14,7 @@ import com.gargoylesoftware.htmlunit.WebRequest;
 import com.gargoylesoftware.htmlunit.WebResponse;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.util.NameValuePair;
-import com.geccocrawler.gecco.downloader.DownloaderException;
+import com.geccocrawler.gecco.downloader.DownloadException;
 import com.geccocrawler.gecco.request.HttpPostRequest;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.response.HttpResponse;
@@ -41,7 +41,7 @@ public class HtmlUnitDownloder extends AbstractDownloader {
 		//this.webClient.setJavaScriptErrorListener(new GeccoJavaScriptErrorListener());
 	}
 	
-	public HttpResponse download(HttpRequest request, int timeout) throws DownloaderException {
+	public HttpResponse download(HttpRequest request, int timeout) throws DownloadException {
 		try {
 			URL url = new URL(request.getUrl());
 			WebRequest webRequest = new WebRequest(url);
@@ -86,11 +86,11 @@ public class HtmlUnitDownloder extends AbstractDownloader {
 				String charset = getCharset(request.getCharset(), contentType);
 				resp.setCharset(charset);
 			} else {
-				throw new DownloaderException("ERROR : " + status);
+				throw new DownloadException("ERROR : " + status);
 			}
 			return resp;
 		} catch(Exception ex) {
-			throw new DownloaderException(ex);
+			throw new DownloadException(ex);
 		}
 	}
 
