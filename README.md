@@ -11,14 +11,12 @@ javaÅÀ³ægecco·¢²¼ÁË1.0.5°æ±¾£¬Ôö¼ÓÁË¶ÔhtmlunitµÄÖ§³Ö¡£[htmlunit](http://htmlunit
 
 - Ê¹ÓÃHtmlUnitDownloader
 
-	ĞèÒªÔÚÆô¶¯ÅÀ³æÊ±Ê¹ÓÃHtmlUnitDownloader
-
-		GeccoEngine.create().downloader(new HtmlUnitDownloder())...
+	@Gecco×¢½âÖĞÅäÖÃhtmlUnitDownloder
 
 ##Demo
 JDµÄÉÌÆ·ÏêÇéĞÅÏ¢ÀïµÄ¼Û¸ñµÄĞÅÏ¢ÊÇÍ¨¹ıajaxÒì²½ÇëÇó¶øÀ´µÄ£¬Ö®Ç°ÊÇÀûÓÃ@Ajax×¢½âµÄ·½Ê½ÊµÏÖµÄ¡£ÕâÀïÓÃhtmlunitÀ´×Ô¶¯Íê³ÉajaxÇëÇó¡£
 	
-	@Gecco(matchUrl="http://item.jd.com/{code}.html", pipelines="consolePipeline")
+	@Gecco(matchUrl="http://item.jd.com/{code}.html", pipelines="consolePipeline", downloader="htmlUnitDownloder")
 	public class JDDetail implements HtmlBean {
 	
 		private static final long serialVersionUID = -377053120283382723L;
@@ -82,12 +80,10 @@ JDµÄÉÌÆ·ÏêÇéĞÅÏ¢ÀïµÄ¼Û¸ñµÄĞÅÏ¢ÊÇÍ¨¹ıajaxÒì²½ÇëÇó¶øÀ´µÄ£¬Ö®Ç°ÊÇÀûÓÃ@Ajax×¢½âµÄ·½Ê
 		}
 	
 		public static void main(String[] args) throws Exception {
-			HtmlUnitDownloder downloader = new HtmlUnitDownloder();
 			HttpRequest request = new HttpGetRequest("http://item.jd.com/1455427.html");
 			request.setCharset("GBK");
 			GeccoEngine.create()
 			.classpath("com.geccocrawler.gecco.htmlunit")
-			.downloader(downloader)
 			//¿ªÊ¼×¥È¡µÄÒ³ÃæµØÖ·
 			.start(request)
 			//¿ªÆô¼¸¸öÅÀ³æÏß³Ì
