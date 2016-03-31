@@ -1,5 +1,5 @@
 #java爬虫gecco支持htmlunit
-java爬虫gecco发布了1.0.5版本，增加了对htmlunit的支持。[htmlunit](http://htmlunit.sourceforge.net/)是一款开源的java 页面分析工具，读取页面后，可以有效的使用htmlunit分析页面上的内容。项目可以模拟浏览器运行，被誉为java浏览器的开源实现。这个没有界面的浏览器，运行速度也是非常迅速的。htmlunit采用的是rhino作为javascript的解析引擎。
+java爬虫gecco增加了对htmlunit的支持。[htmlunit](http://htmlunit.sourceforge.net/)是一款开源的java 页面分析工具，读取页面后，可以有效的使用htmlunit分析页面上的内容。项目可以模拟浏览器运行，被誉为java浏览器的开源实现。这个没有界面的浏览器，运行速度也是非常迅速的。htmlunit采用的是rhino作为javascript的解析引擎。
 ##使用方法
 - 下载
 	
