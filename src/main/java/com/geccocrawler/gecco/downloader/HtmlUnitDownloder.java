@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 
+
 import org.apache.http.HttpHost;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
@@ -18,6 +19,7 @@ import com.geccocrawler.gecco.downloader.DownloadException;
 import com.geccocrawler.gecco.request.HttpPostRequest;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.response.HttpResponse;
+import com.geccocrawler.gecco.spider.SpiderThreadLocal;
 import com.geccocrawler.gecco.utils.UrlUtils;
 
 /**
@@ -57,7 +59,8 @@ public class HtmlUnitDownloder extends AbstractDownloader {
 				webRequest.setRequestParameters(requestParameters);	
 			}
 			//header
-			webRequest.setAdditionalHeader("User-Agent", UserAgent.getUserAgent());
+			boolean isMobile = SpiderThreadLocal.get().getEngine().isMobile();
+			webRequest.setAdditionalHeader("User-Agent", UserAgent.getUserAgent(isMobile));
 			webRequest.setAdditionalHeaders(request.getHeaders());
 			//proxy
 			HttpHost proxy = Proxys.getProxy();

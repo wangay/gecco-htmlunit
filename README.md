@@ -6,12 +6,8 @@ java爬虫gecco发布了1.0.5版本，增加了对htmlunit的支持。[htmlunit](http://htmlunit
 		<dependency>
 		    <groupId>com.geccocrawler</groupId>
 		    <artifactId>gecco-htmlunit</artifactId>
-		    <version>1.0.6</version>
+		    <version>1.0.8</version>
 		</dependency>
-
-- 使用HtmlUnitDownloader
-
-	@Gecco注解中配置htmlUnitDownloder
 
 ##Demo
 JD的商品详情信息里的价格的信息是通过ajax异步请求而来的，之前是利用@Ajax注解的方式实现的。这里用htmlunit来自动完成ajax请求。
