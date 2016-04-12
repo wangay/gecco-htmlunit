@@ -6,7 +6,7 @@ javaÅÀ³ægeccoÔö¼ÓÁË¶ÔhtmlunitµÄÖ§³Ö¡£[htmlunit](http://htmlunit.sourceforge.net/
 		<dependency>
 		    <groupId>com.geccocrawler</groupId>
 		    <artifactId>gecco-htmlunit</artifactId>
-		    <version>1.0.8</version>
+		    <version>1.0.9</version>
 		</dependency>
 
 ##Demo
@@ -84,7 +84,6 @@ JDµÄÉÌÆ·ÏêÇéĞÅÏ¢ÀïµÄ¼Û¸ñµÄĞÅÏ¢ÊÇÍ¨¹ıajaxÒì²½ÇëÇó¶øÀ´µÄ£¬Ö®Ç°ÊÇÀûÓÃ@Ajax×¢½âµÄ·½Ê
 			.start(request)
 			//¿ªÆô¼¸¸öÅÀ³æÏß³Ì
 			.thread(1)
-			.timeout(1000)
 			.run();
 		}
 	}
